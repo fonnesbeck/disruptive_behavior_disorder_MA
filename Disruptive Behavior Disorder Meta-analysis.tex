@@ -1,0 +1,1652 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass{article}
+
+    
+    
+    \usepackage{graphicx} % Used to insert images
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{color} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    
+
+    
+    
+    \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+    \definecolor{darkorange}{rgb}{.71,0.21,0.01}
+    \definecolor{darkgreen}{rgb}{.12,.54,.11}
+    \definecolor{myteal}{rgb}{.26, .44, .56}
+    \definecolor{gray}{gray}{0.45}
+    \definecolor{lightgray}{gray}{.95}
+    \definecolor{mediumgray}{gray}{.8}
+    \definecolor{inputbackground}{rgb}{.95, .95, .85}
+    \definecolor{outputbackground}{rgb}{.95, .95, .95}
+    \definecolor{traceback}{rgb}{1, .95, .95}
+    % ansi colors
+    \definecolor{red}{rgb}{.6,0,0}
+    \definecolor{green}{rgb}{0,.65,0}
+    \definecolor{brown}{rgb}{0.6,0.6,0}
+    \definecolor{blue}{rgb}{0,.145,.698}
+    \definecolor{purple}{rgb}{.698,.145,.698}
+    \definecolor{cyan}{rgb}{0,.698,.698}
+    \definecolor{lightgray}{gray}{0.5}
+    
+    % bright ansi colors
+    \definecolor{darkgray}{gray}{0.25}
+    \definecolor{lightred}{rgb}{1.0,0.39,0.28}
+    \definecolor{lightgreen}{rgb}{0.48,0.99,0.0}
+    \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
+    \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
+    \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
+    
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{Disruptive Behavior Disorder Meta-analysis}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=blue,
+      linkcolor=darkorange,
+      citecolor=darkgreen,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}1}]:} \PY{o}{\PYZpc{}}\PY{k}{matplotlib} \PY{n}{inline}
+        \PY{k+kn}{import} \PY{n+nn}{matplotlib.pyplot} \PY{k+kn}{as} \PY{n+nn}{plt}
+        \PY{k+kn}{import} \PY{n+nn}{seaborn} \PY{k+kn}{as} \PY{n+nn}{sb}
+        \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
+        \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k+kn}{as} \PY{n+nn}{pd}
+        \PY{k+kn}{import} \PY{n+nn}{pymc} \PY{k+kn}{as} \PY{n+nn}{pm}
+        \PY{k+kn}{from} \PY{n+nn}{scipy.misc} \PY{k+kn}{import} \PY{n}{comb}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{seed}\PY{p}{(}\PY{l+m+mi}{42}\PY{p}{)}
+\end{Verbatim}
+
+    \subsection{Data import and cleaning}\label{data-import-and-cleaning}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{n}{study\PYZus{}char} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}excel}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{DBD Data for Meta Analyses.xlsx}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Study Characteristics}\PY{l+s}{\PYZdq{}}\PY{p}{,} 
+                                   \PY{n}{index\PYZus{}col}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{RefID}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{na\PYZus{}values}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{NR}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+        \PY{n}{outcomes} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}excel}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{DBD Data for Meta Analyses.xlsx}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Outcomes}\PY{l+s}{\PYZdq{}}\PY{p}{,} 
+                                   \PY{n}{na\PYZus{}values}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{ND}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{NR}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+        \PY{n}{demographics} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}excel}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{DBD Data for Meta Analyses.xlsx}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pt Demographics}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{na\PYZus{}values}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{NR}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    Data cleaning
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{c}{\PYZsh{} Cast outcomes variables to floats}
+        \PY{k}{for} \PY{n}{col} \PY{o+ow}{in} \PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Last FU Mean}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Last FU SD}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{p}{)}\PY{p}{:}
+            \PY{n}{outcomes}\PY{p}{[}\PY{n}{col}\PY{p}{]} \PY{o}{=} \PY{n}{outcomes}\PY{p}{[}\PY{n}{col}\PY{p}{]}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{float}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{c}{\PYZsh{} Recode age category}
+        \PY{n}{study\PYZus{}char}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{age\PYZus{}cat}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{study\PYZus{}char}\PY{o}{.}\PY{n}{AgeCat}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s}{\PYZsq{}}\PY{l+s}{PRE\PYZhy{}K}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{SCHOOL}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{TEEN}\PY{l+s}{\PYZsq{}}\PY{p}{:}\PY{l+m+mi}{2}\PY{p}{\PYZcb{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{c}{\PYZsh{} Fix data label typo}
+        \PY{n}{outcomes}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Measure Instrument}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{outcomes}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Measure Instrument}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s}{\PYZsq{}}\PY{l+s}{Eyberg Child Behaviour Inventory, problem Subscale}\PY{l+s}{\PYZsq{}}\PY{p}{:} 
+                                                \PY{l+s}{\PYZsq{}}\PY{l+s}{Eyberg Child Behaviour Inventory, Problem Subscale}\PY{l+s}{\PYZsq{}}\PY{p}{\PYZcb{}}\PY{p}{)}
+        \PY{n}{outcomes}\PY{o}{.}\PY{n}{Units} \PY{o}{=} \PY{n}{outcomes}\PY{o}{.}\PY{n}{Units}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s}{\PYZsq{}}\PY{l+s}{scale}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{Scale}\PY{l+s}{\PYZsq{}}\PY{p}{\PYZcb{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{c}{\PYZsh{} Parse followup times and convert to months}
+        \PY{n}{split\PYZus{}fut} \PY{o}{=} \PY{n}{outcomes}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{outcomes}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Last FU Time}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{notnull}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Last FU Time}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{apply}\PY{p}{(}\PY{k}{lambda} \PY{n}{x}\PY{p}{:} \PY{n+nb}{str}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ }\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+        \PY{n}{fut\PYZus{}months} \PY{o}{=} \PY{p}{[}\PY{n+nb}{float}\PY{p}{(}\PY{n}{time}\PY{p}{)}\PY{o}{/}\PY{l+m+mf}{52.}\PY{o}{*}\PY{p}{(}\PY{n}{unit}\PY{o}{==}\PY{l+s}{\PYZsq{}}\PY{l+s}{weeks}\PY{l+s}{\PYZsq{}}\PY{p}{)} \PY{o+ow}{or} \PY{n+nb}{float}\PY{p}{(}\PY{n}{time}\PY{p}{)} \PY{k}{for} \PY{n}{time}\PY{p}{,} \PY{n}{unit} \PY{o+ow}{in} \PY{n}{split\PYZus{}fut}\PY{p}{]}
+        \PY{n}{outcomes}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{outcomes}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Last FU Time}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{notnull}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Last FU Time}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{fut\PYZus{}months}
+\end{Verbatim}
+
+    We are assumung all CBC Externalizing values over 50 are T-scores, and
+those under 50 are raw scores. This recodes those observations.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{n}{cbce\PYZus{}ind} \PY{o}{=} \PY{n}{outcomes}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Measure Instrument}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{apply}\PY{p}{(}\PY{k}{lambda} \PY{n}{x}\PY{p}{:} \PY{n}{x}\PY{o}{.}\PY{n}{startswith}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Child Behavior Checklist, Externalizing}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+        \PY{n}{under\PYZus{}50} \PY{o}{=} \PY{n}{outcomes}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{BL Mean}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{\PYZlt{}}\PY{l+m+mi}{50}
+        \PY{n}{outcomes}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{cbce\PYZus{}ind} \PY{o}{\PYZam{}} \PY{p}{(}\PY{n}{under\PYZus{}50}\PY{o}{\PYZca{}}\PY{n+nb+bp}{True}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Measure Instrument}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{Child Behavior Checklist, Externalizing (T Score)}\PY{l+s}{\PYZsq{}}
+        \PY{n}{outcomes}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{cbce\PYZus{}ind} \PY{o}{\PYZam{}} \PY{n}{under\PYZus{}50}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Measure Instrument}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{Child Behavior Checklist, Externalizing}\PY{l+s}{\PYZsq{}}
+\end{Verbatim}
+
+    Recode measure instrument variables
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{n}{instrument} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{n}{subtype} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{n}{units} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        
+        \PY{k}{for} \PY{n}{i}\PY{p}{,}\PY{n}{row} \PY{o+ow}{in} \PY{n}{outcomes}\PY{o}{.}\PY{n}{iterrows}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{n}{separator} \PY{o}{=} \PY{n}{row}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Measure Instrument}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{,}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+            \PY{k}{if} \PY{n}{separator} \PY{o}{==} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{:}
+                \PY{n}{separator} \PY{o}{=} \PY{n}{row}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Measure Instrument}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+            \PY{n}{instrument}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{row}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Measure Instrument}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{n}{separator}\PY{p}{]}\PY{p}{)}
+            \PY{n}{s} \PY{o}{=} \PY{n}{row}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Measure Instrument}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{n}{separator}\PY{o}{+}\PY{l+m+mi}{2}\PY{p}{:}\PY{p}{]}
+            \PY{n}{paren} \PY{o}{=} \PY{n}{s}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{(}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+            \PY{k}{if} \PY{n}{paren} \PY{o}{\PYZgt{}} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{:}
+                \PY{n}{subtype}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{s}\PY{p}{[}\PY{p}{:}\PY{n}{paren}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+                \PY{n}{units}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{s}\PY{p}{[}\PY{n}{paren}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+            \PY{k}{else}\PY{p}{:}
+                \PY{n}{subtype}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{s}\PY{p}{)}
+                \PY{k}{if} \PY{n}{s}\PY{o}{.}\PY{n}{endswith}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{scale}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+                    \PY{n}{units}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Scale}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                \PY{k}{else}\PY{p}{:}
+                    \PY{n}{units}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Score}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+                    
+        \PY{n}{new\PYZus{}cols} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s}{\PYZsq{}}\PY{l+s}{instrument}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{n}{instrument}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{subtype}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{n}{subtype}\PY{p}{,} 
+                                 \PY{l+s}{\PYZsq{}}\PY{l+s}{units}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{n}{units}\PY{p}{\PYZcb{}}\PY{p}{,} \PY{n}{index}\PY{o}{=}\PY{n}{outcomes}\PY{o}{.}\PY{n}{index}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{n}{outcomes}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Measure Instrument}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}10}]:} Eyberg Child Behaviour Inventory, Intensity Subscale            63
+         Eyberg Child Behaviour Inventory, Problem Subscale              45
+         Child Behavior Checklist, Externalizing (T Score)               33
+         Child Behavior Checklist, Externalizing                         11
+         Eyberg Child Behaviour Inventory, Intensity Subscale (T Score)    10
+         Strengths and Difficulties Questionnaire- Conduct Problems Scale    10
+         Child Behavior Checklist, Aggression                             4
+         Strengths and Difficulties Questionnaire- Emotional Symptoms Scale     4
+         Strengths and Difficulties Questionnaire- Total Difficulties Score     4
+         Strengths and Difficulties Questionnaire- Total Score            4
+         Eyberg Child Behaviour Inventory, Problem Subscale (T Score)     4
+         Strengths and Difficulties Questionnaire- Impact Score           2
+         Strengths and Difficulties Questionnaire- Hyperactivity Scale     2
+         Child Behavior Checklist, Conduct Problems                       2
+         Child Behavior Checklist, Rulebreaking                           2
+         Child Behavior Checklist, Conduct Problems (T Score)             2
+         dtype: int64
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{n}{new\PYZus{}cols}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}11}]:}                          instrument             subtype    units
+         0  Eyberg Child Behaviour Inventory  Intensity Subscale  T Score
+         1  Eyberg Child Behaviour Inventory    Problem Subscale  T Score
+         2  Eyberg Child Behaviour Inventory  Intensity Subscale  T Score
+         3  Eyberg Child Behaviour Inventory    Problem Subscale  T Score
+         4          Child Behavior Checklist       Externalizing    Score
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{c}{\PYZsh{} Append new columns}
+         \PY{n}{outcomes} \PY{o}{=} \PY{n}{outcomes}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{new\PYZus{}cols}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{n}{outcomes}\PY{o}{.}\PY{n}{intvn}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}13}]:} wlc              41
+         tau              37
+         iypt             26
+         pcit             16
+         pppsd             7
+         iyptndiyct        6
+         mst               5
+         it                4
+         ppcp              4
+         pppo              4
+         pmto              3
+         pcitc             3
+         snap              3
+         spokes            3
+         pmtndp            3
+         pppe              3
+         pmtpa             2
+         iyct              2
+         hncte             2
+         setpc             2
+         pcitabb           2
+         modularndn        2
+         pmtsd             2
+         hncstd            2
+         pmtnds            2
+         cpp               1
+         cbt               1
+         pppstd            1
+         coaching          1
+         mcfi              1
+         modularndcomm     1
+         itpt              1
+         kitkashrut        1
+         sst               1
+         pstnds            1
+         hnc               1
+         hitkashrut        1
+         iyptadv           1
+         scip              1
+         modularndclin     1
+         projndsupport     1
+         dtype: int64
+\end{Verbatim}
+        
+    \subsection{Data summaries}\label{data-summaries}
+
+Cross-tabulation of the outcome counts by measure instrument
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}14}]:} \PY{n}{pd}\PY{o}{.}\PY{n}{crosstab}\PY{p}{(}\PY{n}{outcomes}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{instrument}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{outcomes}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Outcome}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}14}]:} Outcome                                   01 Behavior, disruptive  \textbackslash{}
+         instrument                                                          
+         Child Behavior Checklist                                       48   
+         Eyberg Child Behaviour Inventory                              122   
+         Strengths and Difficulties Questionnaire                       10   
+         
+         Outcome                                   02 Behavior, aggression  \textbackslash{}
+         instrument                                                          
+         Child Behavior Checklist                                        4   
+         Eyberg Child Behaviour Inventory                                0   
+         Strengths and Difficulties Questionnaire                        0   
+         
+         Outcome                                   06 Behavior, fighting, destruction, violation  \textbackslash{}
+         instrument                                                                                
+         Child Behavior Checklist                                                              2   
+         Eyberg Child Behaviour Inventory                                                      0   
+         Strengths and Difficulties Questionnaire                                              0   
+         
+         Outcome                                   08 Behavior, other  
+         instrument                                                    
+         Child Behavior Checklist                                   0  
+         Eyberg Child Behaviour Inventory                           0  
+         Strengths and Difficulties Questionnaire                  16  
+\end{Verbatim}
+        
+    Distribution of age categories
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}15}]:} \PY{n}{study\PYZus{}char}\PY{o}{.}\PY{n}{AgeCat}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}15}]:} SCHOOL    46
+         PRE-K     26
+         TEEN      14
+         dtype: int64
+\end{Verbatim}
+        
+    Frequencies of various intervention types
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}16}]:} \PY{n}{study\PYZus{}char}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Intervention Type}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}16}]:} PHARM                                                           20
+         IY-PT                                                            8
+         MST                                                              7
+         PCIT                                                             5
+         IY-PT + IY-CT                                                    4
+         BSFT                                                             3
+         PMTO                                                             3
+         Triple P (enhanced)                                              3
+         PT                                                               2
+         Fast Track                                                       2
+         PCIT-ABB                                                         2
+         Triple-P (self-directed)                                         2
+         CBT                                                              2
+         IY-CT                                                            2
+         IY-PT (nurse led)                                                2
+         OTH: Intensive treatment                                         2
+         PMT (practitioner assisted)                                      1
+         HNC                                                              1
+         OTH: Modular (nurse administered)                                1
+         MF-PEP + TAU                                                     1
+         SNAP Under 12 OutReach Project (enhanced)                        1
+         OTH: Booster                                                     1
+         Coping power                                                     1
+         OTH: Child only treatment                                        1
+         OTH: Family therapy                                              1
+         SCIP (Social cognitive (Dodge's))                                1
+         Triple-P (enhanced)                                              1
+         PONI                                                             1
+         OTH: Parental Stress                                             1
+         PCIT (modified)                                                  1
+         Triple-P (online)                                                1
+         UCPP                                                             1
+         IY-PT (brief)                                                    1
+         OTH: Modular treatment (community)                               1
+         MST (PIT)                                                        1
+         OTH: Modular treatment                                           1
+         SNAP Under 12 \textbackslash{}nOutReach Project(ORP)                            1
+         OTH: Instrumental, emotional support \& child management skills     1
+         IY-PT + IY-CT + IY-TT                                            1
+         PMT (perceptive)                                                 1
+         PHARM1 + PHARM2                                                  1
+         HNC (technology enhanced)                                        1
+         OTH: Community Parent Education Program                          1
+         Coping Power                                                     1
+         Coping power; Coping Power + Booser                              1
+         IY-CT + IY-PT                                                    1
+         OTH: FFT                                                         1
+         OTH: Day Program                                                 1
+         OTH: Parents Plus Children's Program                             1
+         IY-PT + ADVANCE                                                  1
+         OTH: Project support                                             1
+         CPS                                                              1
+         Coping Power (cultural adaptation)                               1
+         SNAP Under 12 OutReach Project                                   1
+         Parenting Group (SPOKES)                                         1
+         SET-PC                                                           1
+         PHARM + PSYCH                                                    1
+         Length: 57, dtype: int64
+\end{Verbatim}
+        
+    \subsection{Extract variables of interest and merge
+tables}\label{extract-variables-of-interest-and-merge-tables}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}17}]:} \PY{n}{KQ1} \PY{o}{=} \PY{n}{study\PYZus{}char}\PY{p}{[}\PY{n}{study\PYZus{}char}\PY{o}{.}\PY{n}{KQ}\PY{o}{==}\PY{l+s}{\PYZsq{}}\PY{l+s}{KQ1}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}18}]:} \PY{n}{study\PYZus{}varnames} \PY{o}{=} \PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Year}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{age\PYZus{}cat}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Geographic setting}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Age mean (years) }\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Age SD (years)}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                       \PY{l+s}{\PYZsq{}}\PY{l+s}{Age min (years)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Age max (years)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Proportion Male (}\PY{l+s}{\PYZpc{}}\PY{l+s}{)}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         
+         \PY{n}{study\PYZus{}vars} \PY{o}{=} \PY{n}{KQ1}\PY{p}{[}\PY{n}{study\PYZus{}varnames}\PY{p}{]}\PY{o}{.}\PY{n}{rename}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{p}{\PYZob{}}\PY{l+s}{\PYZsq{}}\PY{l+s}{Geographic setting}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{country}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                    \PY{l+s}{\PYZsq{}}\PY{l+s}{Age mean (years) }\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{age\PYZus{}mean}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                    \PY{l+s}{\PYZsq{}}\PY{l+s}{Age SD (years)}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{age\PYZus{}sd}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                    \PY{l+s}{\PYZsq{}}\PY{l+s}{Age min (years)}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{age\PYZus{}min}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                    \PY{l+s}{\PYZsq{}}\PY{l+s}{Age max (years)}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{age\PYZus{}max}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                    \PY{l+s}{\PYZsq{}}\PY{l+s}{Proportion Male (}\PY{l+s}{\PYZpc{}}\PY{l+s}{)}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{p\PYZus{}male}\PY{l+s}{\PYZsq{}}\PY{p}{\PYZcb{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}19}]:} \PY{n}{study\PYZus{}vars}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}19}]:}        Year  age\_cat      country  age\_mean  age\_sd  age\_min  age\_max  p\_male
+         RefID                                                                        
+         23     2013        1          USA      2.80    0.61        2        4      62
+         100    2013        2          USA     14.60    1.30       11       18      83
+         103    2013        1          USA      5.67    1.72        3        8      53
+         141    2013        0          USA      9.90    1.30        8       11      73
+         156    2013        2  Netherlands     16.00    1.31       12       18      73
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}20}]:} \PY{n}{study\PYZus{}vars}\PY{o}{.}\PY{n}{p\PYZus{}male}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}20}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1088dcc50>
+\end{Verbatim}
+        
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_27_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Proportion missing
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}21}]:} \PY{n}{study\PYZus{}vars}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}21}]:} Year        0.00
+         age\_cat     0.00
+         country     0.00
+         age\_mean    0.13
+         age\_sd      0.20
+         age\_min     0.07
+         age\_max     0.08
+         p\_male      0.01
+         dtype: float64
+\end{Verbatim}
+        
+    Will assume the mean age for those which are missing is simply the
+midpoint between minimum and maximum values
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}22}]:} \PY{n}{est\PYZus{}means} \PY{o}{=} \PY{n}{study\PYZus{}vars}\PY{o}{.}\PY{n}{apply}\PY{p}{(}\PY{k}{lambda} \PY{n}{x}\PY{p}{:} \PY{n}{x}\PY{o}{.}\PY{n}{age\PYZus{}min} \PY{o}{+} \PY{p}{(}\PY{n}{x}\PY{o}{.}\PY{n}{age\PYZus{}max} \PY{o}{\PYZhy{}} \PY{n}{x}\PY{o}{.}\PY{n}{age\PYZus{}min}\PY{p}{)} \PY{o}{/} \PY{l+m+mi}{2}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{[}\PY{n}{study\PYZus{}vars}\PY{o}{.}\PY{n}{age\PYZus{}mean}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{p}{]}
+         \PY{n}{study\PYZus{}vars}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{study\PYZus{}vars}\PY{o}{.}\PY{n}{age\PYZus{}mean}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{age\PYZus{}mean}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{est\PYZus{}means}
+         
+         \PY{n}{study\PYZus{}vars}\PY{o}{.}\PY{n}{age\PYZus{}mean}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}22}]:} 3
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}23}]:} \PY{n}{outcomes\PYZus{}varnames} \PY{o}{=} \PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Ref ID}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Measure Instrument}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{instrument}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{subtype}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{units}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                              \PY{l+s}{\PYZsq{}}\PY{l+s}{intvn}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{cc}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{pc}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{fc}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                              \PY{l+s}{\PYZsq{}}\PY{l+s}{BL N}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{BL Mean}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{BL SD}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                              \PY{l+s}{\PYZsq{}}\PY{l+s}{EOT }\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{N}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{EOT Mean}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{EOT }\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{SD}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Last FU Time}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Last FU N}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                              \PY{l+s}{\PYZsq{}}\PY{l+s}{Last FU Mean}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Last FU SD}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{CS Group N}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{CS Mean}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{CS SD}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}24}]:} \PY{n}{outcomes\PYZus{}vars} \PY{o}{=} \PY{n}{outcomes}\PY{p}{[}\PY{n}{outcomes\PYZus{}varnames}\PY{p}{]}\PY{o}{.}\PY{n}{rename}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{p}{\PYZob{}}\PY{l+s}{\PYZsq{}}\PY{l+s}{Ref ID}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{RefID}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                                                                \PY{l+s}{\PYZsq{}}\PY{l+s}{Measure Instrument}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{measure\PYZus{}instrument}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                                                                                \PY{l+s}{\PYZsq{}}\PY{l+s}{cc}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{child\PYZus{}component}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                                                                                \PY{l+s}{\PYZsq{}}\PY{l+s}{pc}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{parent\PYZus{}component}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                                                                                \PY{l+s}{\PYZsq{}}\PY{l+s}{fc}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{family\PYZus{}component}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                                                                                \PY{l+s}{\PYZsq{}}\PY{l+s}{oc}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{other\PYZus{}component}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                                                                                \PY{l+s}{\PYZsq{}}\PY{l+s}{BL N}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{baseline\PYZus{}n}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                                                                                \PY{l+s}{\PYZsq{}}\PY{l+s}{BL Mean}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{baseline\PYZus{}mean}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                                                                                \PY{l+s}{\PYZsq{}}\PY{l+s}{BL SD}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{baseline\PYZus{}sd}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                                                                \PY{l+s}{\PYZsq{}}\PY{l+s}{EOT }\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{N}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{end\PYZus{}treat\PYZus{}n}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                                                                \PY{l+s}{\PYZsq{}}\PY{l+s}{EOT Mean}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{end\PYZus{}treat\PYZus{}mean}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                                                                \PY{l+s}{\PYZsq{}}\PY{l+s}{EOT }\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{SD}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{end\PYZus{}treat\PYZus{}sd}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                                                                \PY{l+s}{\PYZsq{}}\PY{l+s}{Last FU Time}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{followup\PYZus{}time}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                                                                \PY{l+s}{\PYZsq{}}\PY{l+s}{Last FU N}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{followup\PYZus{}n}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                                                                                \PY{l+s}{\PYZsq{}}\PY{l+s}{Last FU Mean}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{followup\PYZus{}mean}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                                                                \PY{l+s}{\PYZsq{}}\PY{l+s}{Last FU SD}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{followup\PYZus{}sd}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                                                                \PY{l+s}{\PYZsq{}}\PY{l+s}{CS Group N}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{change\PYZus{}n}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                                                                                \PY{l+s}{\PYZsq{}}\PY{l+s}{CS Mean}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{change\PYZus{}mean}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                                                                                \PY{l+s}{\PYZsq{}}\PY{l+s}{CS SD}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{change\PYZus{}sd}\PY{l+s}{\PYZsq{}}\PY{p}{\PYZcb{}}\PY{p}{)}
+\end{Verbatim}
+
+    Recode intervention clasification
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}25}]:} \PY{n}{control} \PY{o}{=} \PY{p}{(}\PY{p}{(}\PY{n}{outcomes\PYZus{}vars}\PY{o}{.}\PY{n}{child\PYZus{}component}\PY{o}{\PYZca{}}\PY{n+nb+bp}{True}\PY{p}{)} \PY{o}{\PYZam{}} 
+                    \PY{p}{(}\PY{n}{outcomes\PYZus{}vars}\PY{o}{.}\PY{n}{parent\PYZus{}component}\PY{o}{\PYZca{}}\PY{n+nb+bp}{True}\PY{p}{)} \PY{o}{\PYZam{}} 
+                    \PY{p}{(}\PY{n}{outcomes\PYZus{}vars}\PY{o}{.}\PY{n}{family\PYZus{}component}\PY{o}{\PYZca{}}\PY{n+nb+bp}{True}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
+         \PY{n}{child\PYZus{}only} \PY{o}{=} \PY{p}{(}\PY{p}{(}\PY{n}{outcomes\PYZus{}vars}\PY{o}{.}\PY{n}{child\PYZus{}component}\PY{p}{)} \PY{o}{\PYZam{}} 
+                       \PY{p}{(}\PY{n}{outcomes\PYZus{}vars}\PY{o}{.}\PY{n}{parent\PYZus{}component}\PY{o}{\PYZca{}}\PY{n+nb+bp}{True}\PY{p}{)} \PY{o}{\PYZam{}} 
+                       \PY{p}{(}\PY{n}{outcomes\PYZus{}vars}\PY{o}{.}\PY{n}{family\PYZus{}component}\PY{o}{\PYZca{}}\PY{n+nb+bp}{True}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
+         \PY{n}{parent\PYZus{}only} \PY{o}{=} \PY{p}{(}\PY{p}{(}\PY{n}{outcomes\PYZus{}vars}\PY{o}{.}\PY{n}{child\PYZus{}component}\PY{o}{\PYZca{}}\PY{n+nb+bp}{True}\PY{p}{)} \PY{o}{\PYZam{}} 
+                        \PY{p}{(}\PY{n}{outcomes\PYZus{}vars}\PY{o}{.}\PY{n}{parent\PYZus{}component}\PY{p}{)} \PY{o}{\PYZam{}} 
+                        \PY{p}{(}\PY{n}{outcomes\PYZus{}vars}\PY{o}{.}\PY{n}{family\PYZus{}component}\PY{o}{\PYZca{}}\PY{n+nb+bp}{True}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
+         \PY{n}{outcomes\PYZus{}vars}\PY{o}{.}\PY{n}{ix}\PY{p}{[}\PY{n}{child\PYZus{}only}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{bool}\PY{p}{)}\PY{p}{,} \PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{child\PYZus{}component}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{parent\PYZus{}component}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{family\PYZus{}component}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{]}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}25}]:}      child\_component  parent\_component  family\_component
+         112                1                 0                 0
+         113                1                 0                 0
+         115                1                 0                 0
+         116                1                 0                 0
+         149                1                 0                 0
+         173                1                 0                 0
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}26}]:} \PY{n}{multi\PYZus{}component} \PY{o}{=} \PY{p}{(}\PY{p}{(}\PY{n}{parent\PYZus{}only}\PY{o}{\PYZca{}}\PY{n+nb+bp}{True}\PY{p}{)} \PY{o}{\PYZam{}} \PY{p}{(}\PY{n}{child\PYZus{}only}\PY{o}{\PYZca{}}\PY{n+nb+bp}{True}\PY{p}{)} \PY{o}{\PYZam{}} \PY{p}{(}\PY{n}{control}\PY{o}{\PYZca{}}\PY{n+nb+bp}{True}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
+         
+         \PY{n}{outcomes\PYZus{}vars}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{child\PYZus{}only}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{child\PYZus{}only}
+         \PY{n}{outcomes\PYZus{}vars}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{parent\PYZus{}only}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{parent\PYZus{}only}
+         \PY{n}{outcomes\PYZus{}vars}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{multi\PYZus{}component}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{multi\PYZus{}component}
+\end{Verbatim}
+
+    Obtain subset with non-missing EOT data
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}27}]:} \PY{n}{eot\PYZus{}subset} \PY{o}{=} \PY{n}{outcomes\PYZus{}vars}\PY{p}{[}\PY{n}{outcomes\PYZus{}vars}\PY{o}{.}\PY{n}{end\PYZus{}treat\PYZus{}mean}\PY{o}{.}\PY{n}{notnull}\PY{p}{(}\PY{p}{)} \PY{o}{\PYZam{}} \PY{n}{outcomes\PYZus{}vars}\PY{o}{.}\PY{n}{end\PYZus{}treat\PYZus{}sd}\PY{o}{.}\PY{n}{notnull}\PY{p}{(}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
+
+    Calculate EOT difference
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}28}]:} \PY{n}{eot\PYZus{}subset}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{eot\PYZus{}diff\PYZus{}mean}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{eot\PYZus{}subset}\PY{o}{.}\PY{n}{end\PYZus{}treat\PYZus{}mean} \PY{o}{\PYZhy{}} \PY{n}{eot\PYZus{}subset}\PY{o}{.}\PY{n}{baseline\PYZus{}mean}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+/usr/local/lib/python3.4/site-packages/IPython/kernel/\_\_main\_\_.py:1: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row\_indexer,col\_indexer] = value instead
+
+See the the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html\#indexing-view-versus-copy
+  if \_\_name\_\_ == '\_\_main\_\_':
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}29}]:} \PY{n}{eot\PYZus{}subset}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{eot\PYZus{}diff\PYZus{}sd}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{eot\PYZus{}subset}\PY{o}{.}\PY{n}{baseline\PYZus{}sd} \PY{o}{+} \PY{n}{eot\PYZus{}subset}\PY{o}{.}\PY{n}{end\PYZus{}treat\PYZus{}sd}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}30}]:} \PY{n}{eot\PYZus{}subset}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{eot\PYZus{}diff\PYZus{}n}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{eot\PYZus{}subset}\PY{p}{[}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{baseline\PYZus{}n}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{end\PYZus{}treat\PYZus{}n}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+
+    Distribution of baseline means among outcome metrics
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}31}]:} \PY{k}{for} \PY{n}{instrument} \PY{o+ow}{in} \PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Eyberg Child Behaviour Inventory}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                            \PY{l+s}{\PYZsq{}}\PY{l+s}{Child Behavior Checklist}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                            \PY{l+s}{\PYZsq{}}\PY{l+s}{Strengths and Difficulties Questionnaire}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+             \PY{n}{eot\PYZus{}subset}\PY{p}{[}\PY{n}{eot\PYZus{}subset}\PY{o}{.}\PY{n}{instrument}\PY{o}{==}\PY{n}{instrument}\PY{p}{]}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{baseline\PYZus{}mean}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{n}{by}\PY{o}{=}\PY{n}{eot\PYZus{}subset}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{subtype}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} 
+                                                                                       \PY{n}{sharex}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{suptitle}\PY{p}{(}\PY{n}{instrument}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_44_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_44_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_44_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}32}]:} \PY{n}{eot\PYZus{}subset}\PY{o}{.}\PY{n}{instrument}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}32}]:} Eyberg Child Behaviour Inventory            86
+         Child Behavior Checklist                    31
+         Strengths and Difficulties Questionnaire    20
+         dtype: int64
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}33}]:} \PY{n}{eot\PYZus{}subset}\PY{p}{[}\PY{n}{eot\PYZus{}subset}\PY{o}{.}\PY{n}{RefID}\PY{o}{==}\PY{l+m+mi}{441}\PY{p}{]}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}33}]:}     RefID                                 measure\_instrument  \textbackslash{}
+         14    441  Eyberg Child Behaviour Inventory, Intensity Su\ldots   
+         15    441  Eyberg Child Behaviour Inventory, Problem Subs\ldots   
+         16    441  Eyberg Child Behaviour Inventory, Intensity Su\ldots   
+         17    441  Eyberg Child Behaviour Inventory, Problem Subs\ldots   
+         
+                                   instrument             subtype  units intvn  \textbackslash{}
+         14  Eyberg Child Behaviour Inventory  Intensity Subscale  Scale  iypt   
+         15  Eyberg Child Behaviour Inventory    Problem Subscale  Scale  iypt   
+         16  Eyberg Child Behaviour Inventory  Intensity Subscale  Scale   wlc   
+         17  Eyberg Child Behaviour Inventory    Problem Subscale  Scale   wlc   
+         
+             child\_component  parent\_component  family\_component  baseline\_n  \textbackslash{}
+         14                0                 1                 0          32   
+         15                0                 1                 0          24   
+         16                0                 0                 0          20   
+         17                0                 0                 0          17   
+         
+               \ldots      followup\_sd  change\_n  change\_mean  change\_sd  child\_only  \textbackslash{}
+         14    \ldots              NaN       NaN          NaN        NaN           0   
+         15    \ldots              NaN       NaN          NaN        NaN           0   
+         16    \ldots              NaN       NaN          NaN        NaN           0   
+         17    \ldots              NaN       NaN          NaN        NaN           0   
+         
+            parent\_only  multi\_component  eot\_diff\_mean  eot\_diff\_sd eot\_diff\_n  
+         14           1                0         -31.40        46.80         32  
+         15           1                0          -9.70        12.02         24  
+         16           0                0          -5.80        49.60         20  
+         17           0                0          -2.88        14.59         17  
+         
+         [4 rows x 28 columns]
+\end{Verbatim}
+        
+    Several studies use multiple instruments and metrics within instruments
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}34}]:} \PY{n}{eot\PYZus{}subset}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{RefID}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{instrument}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{subtype}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}34}]:} RefID  instrument                                                        
+         441    Eyberg Child Behaviour Inventory          Problem Subscale            2
+                                                          Intensity Subscale          2
+         475    Eyberg Child Behaviour Inventory          Intensity Subscale          2
+         539    Child Behavior Checklist                  Externalizing               2
+                                                          Aggression                  2
+         564    Eyberg Child Behaviour Inventory          Problem Subscale            2
+                                                          Intensity Subscale          2
+         899    Child Behavior Checklist                  Externalizing               3
+                Eyberg Child Behaviour Inventory          Problem Subscale            3
+                                                          Intensity Subscale          3
+         993    Strengths and Difficulties Questionnaire  Total Difficulties Score    2
+                                                          Impact Score                2
+                                                          Conduct Problems Scale      2
+                                                          Hyperactivity Scale         2
+         1236   Eyberg Child Behaviour Inventory          Problem Subscale            6
+                                                          Intensity Subscale          6
+         1245   Child Behavior Checklist                  Externalizing               2
+                Eyberg Child Behaviour Inventory          Intensity Subscale          2
+         1511   Child Behavior Checklist                  Externalizing               2
+         1585   Eyberg Child Behaviour Inventory          Problem Subscale            2
+                                                          Intensity Subscale          2
+         1875   Child Behavior Checklist                  Externalizing               3
+         1951   Child Behavior Checklist                  Externalizing               2
+         2092   Child Behavior Checklist                  Externalizing               3
+                Eyberg Child Behaviour Inventory          Intensity Subscale          3
+         2117   Child Behavior Checklist                  Externalizing               2
+         2219   Eyberg Child Behaviour Inventory          Problem Subscale            3
+                                                          Intensity Subscale          3
+         2239   Child Behavior Checklist                  Externalizing               2
+         2347   Strengths and Difficulties Questionnaire  Total Score                 2
+                                                          Emotional Symptoms Scale    2
+                                                          Conduct Problems Scale      2
+         3211   Eyberg Child Behaviour Inventory          Problem Subscale            2
+                                                          Intensity Subscale          2
+                Strengths and Difficulties Questionnaire  Total Difficulties Score    2
+         3225   Eyberg Child Behaviour Inventory          Problem Subscale            2
+                                                          Intensity Subscale          2
+         3397   Child Behavior Checklist                  Externalizing               2
+         3399   Child Behavior Checklist                  Externalizing               2
+         3495   Eyberg Child Behaviour Inventory          Intensity Subscale          4
+         3687   Eyberg Child Behaviour Inventory          Problem Subscale            6
+                                                          Intensity Subscale          6
+         3716   Eyberg Child Behaviour Inventory          Problem Subscale            2
+                                                          Intensity Subscale          2
+         3766   Child Behavior Checklist                  Conduct Problems            2
+                Eyberg Child Behaviour Inventory          Intensity Subscale          5
+         3915   Eyberg Child Behaviour Inventory          Problem Subscale            2
+                                                          Intensity Subscale          2
+         3960   Eyberg Child Behaviour Inventory          Problem Subscale            2
+         7109   Eyberg Child Behaviour Inventory          Problem Subscale            2
+                                                          Intensity Subscale          2
+                Strengths and Difficulties Questionnaire  Emotional Symptoms Scale    2
+                                                          Conduct Problems Scale      2
+         7723   Child Behavior Checklist                  Externalizing               2
+         Length: 54, dtype: int64
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}35}]:} \PY{n}{pd}\PY{o}{.}\PY{n}{crosstab}\PY{p}{(}\PY{n}{eot\PYZus{}subset}\PY{o}{.}\PY{n}{instrument}\PY{p}{,} \PY{n}{eot\PYZus{}subset}\PY{o}{.}\PY{n}{subtype}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}35}]:} subtype                                   Aggression  Conduct Problems  \textbackslash{}
+         instrument                                                               
+         Child Behavior Checklist                           2                 2   
+         Eyberg Child Behaviour Inventory                   0                 0   
+         Strengths and Difficulties Questionnaire           0                 0   
+         
+         subtype                                   Conduct Problems Scale  \textbackslash{}
+         instrument                                                         
+         Child Behavior Checklist                                       0   
+         Eyberg Child Behaviour Inventory                               0   
+         Strengths and Difficulties Questionnaire                       6   
+         
+         subtype                                   Emotional Symptoms Scale  \textbackslash{}
+         instrument                                                           
+         Child Behavior Checklist                                         0   
+         Eyberg Child Behaviour Inventory                                 0   
+         Strengths and Difficulties Questionnaire                         4   
+         
+         subtype                                   Externalizing  Hyperactivity Scale  \textbackslash{}
+         instrument                                                                     
+         Child Behavior Checklist                             27                    0   
+         Eyberg Child Behaviour Inventory                      0                    0   
+         Strengths and Difficulties Questionnaire              0                    2   
+         
+         subtype                                   Impact Score  Intensity Subscale  \textbackslash{}
+         instrument                                                                   
+         Child Behavior Checklist                             0                   0   
+         Eyberg Child Behaviour Inventory                     0                  50   
+         Strengths and Difficulties Questionnaire             2                   0   
+         
+         subtype                                   Problem Subscale  \textbackslash{}
+         instrument                                                   
+         Child Behavior Checklist                                 0   
+         Eyberg Child Behaviour Inventory                        36   
+         Strengths and Difficulties Questionnaire                 0   
+         
+         subtype                                   Total Difficulties Score  \textbackslash{}
+         instrument                                                           
+         Child Behavior Checklist                                         0   
+         Eyberg Child Behaviour Inventory                                 0   
+         Strengths and Difficulties Questionnaire                         4   
+         
+         subtype                                   Total Score  
+         instrument                                             
+         Child Behavior Checklist                            0  
+         Eyberg Child Behaviour Inventory                    0  
+         Strengths and Difficulties Questionnaire            2  
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}36}]:} \PY{n}{x} \PY{o}{=} \PY{n}{eot\PYZus{}subset}\PY{p}{[}\PY{n}{eot\PYZus{}subset}\PY{o}{.}\PY{n}{instrument}\PY{o}{==}\PY{l+s}{\PYZsq{}}\PY{l+s}{Eyberg Child Behaviour Inventory}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{pd}\PY{o}{.}\PY{n}{crosstab}\PY{p}{(}\PY{n}{x}\PY{o}{.}\PY{n}{instrument}\PY{p}{,} \PY{n}{x}\PY{o}{.}\PY{n}{subtype}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}36}]:} subtype                           Intensity Subscale  Problem Subscale
+         instrument                                                            
+         Eyberg Child Behaviour Inventory                  50                36
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}37}]:} \PY{n}{x} \PY{o}{=} \PY{n}{eot\PYZus{}subset}\PY{p}{[}\PY{n}{eot\PYZus{}subset}\PY{o}{.}\PY{n}{instrument}\PY{o}{==}\PY{l+s}{\PYZsq{}}\PY{l+s}{Child Behavior Checklist}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{pd}\PY{o}{.}\PY{n}{crosstab}\PY{p}{(}\PY{n}{x}\PY{o}{.}\PY{n}{instrument}\PY{p}{,} \PY{n}{x}\PY{o}{.}\PY{n}{subtype}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}37}]:} subtype                   Aggression  Conduct Problems  Externalizing
+         instrument                                                           
+         Child Behavior Checklist           2                 2             27
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}38}]:} \PY{n}{x} \PY{o}{=} \PY{n}{eot\PYZus{}subset}\PY{p}{[}\PY{n}{eot\PYZus{}subset}\PY{o}{.}\PY{n}{instrument}\PY{o}{==}\PY{l+s}{\PYZsq{}}\PY{l+s}{Strengths and Difficulties Questionnaire}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{pd}\PY{o}{.}\PY{n}{crosstab}\PY{p}{(}\PY{n}{x}\PY{o}{.}\PY{n}{instrument}\PY{p}{,} \PY{n}{x}\PY{o}{.}\PY{n}{subtype}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}38}]:} subtype                                   Conduct Problems Scale  \textbackslash{}
+         instrument                                                         
+         Strengths and Difficulties Questionnaire                       6   
+         
+         subtype                                   Emotional Symptoms Scale  \textbackslash{}
+         instrument                                                           
+         Strengths and Difficulties Questionnaire                         4   
+         
+         subtype                                   Hyperactivity Scale  Impact Score  \textbackslash{}
+         instrument                                                                    
+         Strengths and Difficulties Questionnaire                    2             2   
+         
+         subtype                                   Total Difficulties Score  \textbackslash{}
+         instrument                                                           
+         Strengths and Difficulties Questionnaire                         4   
+         
+         subtype                                   Total Score  
+         instrument                                             
+         Strengths and Difficulties Questionnaire            2  
+\end{Verbatim}
+        
+    Merge study variables and outcomes
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}39}]:} \PY{n}{merged\PYZus{}vars} \PY{o}{=} \PY{n}{study\PYZus{}vars}\PY{o}{.}\PY{n}{merge}\PY{p}{(}\PY{n}{eot\PYZus{}subset}\PY{p}{,} \PY{n}{left\PYZus{}index}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{,} \PY{n}{right\PYZus{}on}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{RefID}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{merged\PYZus{}vars}\PY{o}{.}\PY{n}{shape}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}39}]:} (137, 36)
+\end{Verbatim}
+        
+    For now, restrict to the three most prevalent metrics.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}40}]:} \PY{n}{merged\PYZus{}vars}\PY{o}{.}\PY{n}{measure\PYZus{}instrument}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}40}]:} Eyberg Child Behaviour Inventory, Intensity Subscale            46
+         Eyberg Child Behaviour Inventory, Problem Subscale              36
+         Child Behavior Checklist, Externalizing (T Score)               20
+         Child Behavior Checklist, Externalizing                          7
+         Strengths and Difficulties Questionnaire- Conduct Problems Scale     6
+         Strengths and Difficulties Questionnaire- Emotional Symptoms Scale     4
+         Strengths and Difficulties Questionnaire- Total Difficulties Score     4
+         Eyberg Child Behaviour Inventory, Intensity Subscale (T Score)     4
+         Child Behavior Checklist, Aggression                             2
+         Strengths and Difficulties Questionnaire- Total Score            2
+         Strengths and Difficulties Questionnaire- Hyperactivity Scale     2
+         Child Behavior Checklist, Conduct Problems (T Score)             2
+         Strengths and Difficulties Questionnaire- Impact Score           2
+         dtype: int64
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}41}]:} \PY{n}{analysis\PYZus{}subset} \PY{o}{=} \PY{n}{merged\PYZus{}vars}\PY{p}{[}\PY{n}{merged\PYZus{}vars}\PY{o}{.}\PY{n}{measure\PYZus{}instrument}\PY{o}{.}\PY{n}{isin}\PY{p}{(}\PY{n}{merged\PYZus{}vars}\PY{o}{.}\PY{n}{measure\PYZus{}instrument}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{index}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{)}\PY{p}{]}
+         \PY{n}{analysis\PYZus{}subset}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{measure\PYZus{}instrument}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{baseline\PYZus{}mean}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}41}]:} measure\_instrument
+         Child Behavior Checklist, Externalizing                  30.90
+         Child Behavior Checklist, Externalizing (T Score)        77.10
+         Eyberg Child Behaviour Inventory, Intensity Subscale    186.44
+         Eyberg Child Behaviour Inventory, Problem Subscale       28.62
+         Name: baseline\_mean, dtype: float64
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}42}]:} \PY{n}{analysis\PYZus{}subset}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{measure\PYZus{}instrument}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{baseline\PYZus{}mean}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}42}]:} measure\_instrument
+         Child Behavior Checklist, Externalizing                 Axes(0.125,0.125;0.775x0.775)
+         Child Behavior Checklist, Externalizing (T Score)       Axes(0.125,0.125;0.775x0.775)
+         Eyberg Child Behaviour Inventory, Intensity Subscale    Axes(0.125,0.125;0.775x0.775)
+         Eyberg Child Behaviour Inventory, Problem Subscale      Axes(0.125,0.125;0.775x0.775)
+         Name: baseline\_mean, dtype: object
+\end{Verbatim}
+        
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_58_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}43}]:} \PY{n}{analysis\PYZus{}subset}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{baseline\PYZus{}mean}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{n}{by}\PY{o}{=}\PY{n}{analysis\PYZus{}subset}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{measure\PYZus{}instrument}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{sharex}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}43}]:} array([[<matplotlib.axes.\_subplots.AxesSubplot object at 0x1091950b8>,
+                 <matplotlib.axes.\_subplots.AxesSubplot object at 0x108d18da0>],
+                [<matplotlib.axes.\_subplots.AxesSubplot object at 0x108bab710>,
+                 <matplotlib.axes.\_subplots.AxesSubplot object at 0x109028c18>]], dtype=object)
+\end{Verbatim}
+        
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_59_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}44}]:} \PY{n}{analysis\PYZus{}subset}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{eot\PYZus{}diff\PYZus{}mean}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{n}{by}\PY{o}{=}\PY{n}{analysis\PYZus{}subset}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{measure\PYZus{}instrument}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{sharex}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}44}]:} array([[<matplotlib.axes.\_subplots.AxesSubplot object at 0x108b08a90>,
+                 <matplotlib.axes.\_subplots.AxesSubplot object at 0x108753550>],
+                [<matplotlib.axes.\_subplots.AxesSubplot object at 0x1089026a0>,
+                 <matplotlib.axes.\_subplots.AxesSubplot object at 0x108de6a90>]], dtype=object)
+\end{Verbatim}
+        
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_60_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}45}]:} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{analysis\PYZus{}subset}\PY{o}{.}\PY{n}{measure\PYZus{}instrument}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+             \PY{n}{analysis\PYZus{}subset}\PY{p}{[}\PY{n}{analysis\PYZus{}subset}\PY{o}{.}\PY{n}{measure\PYZus{}instrument}\PY{o}{==}\PY{n}{x}\PY{p}{]}\PY{o}{.}\PY{n}{baseline\PYZus{}mean}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{kind}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{kde}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{alpha}\PY{o}{=}\PY{l+m+mf}{0.4}\PY{p}{,} \PY{n}{grid}\PY{o}{=}\PY{n+nb+bp}{False}\PY{p}{)}
+             \PY{n}{analysis\PYZus{}subset}\PY{p}{[}\PY{n}{analysis\PYZus{}subset}\PY{o}{.}\PY{n}{measure\PYZus{}instrument}\PY{o}{==}\PY{n}{x}\PY{p}{]}\PY{o}{.}\PY{n}{end\PYZus{}treat\PYZus{}mean}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{kind}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{kde}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{alpha}\PY{o}{=}\PY{l+m+mf}{0.4}\PY{p}{,} \PY{n}{grid}\PY{o}{=}\PY{n+nb+bp}{False}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{gca}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_61_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_61_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_61_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_61_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsection{Meta-analysis}\label{meta-analysis}
+
+    Number of studies in analysis subset
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}46}]:} \PY{n}{unique\PYZus{}studies} \PY{o}{=} \PY{n}{analysis\PYZus{}subset}\PY{o}{.}\PY{n}{RefID}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{tolist}\PY{p}{(}\PY{p}{)}
+         \PY{n+nb}{len}\PY{p}{(}\PY{n}{unique\PYZus{}studies}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}46}]:} 26
+\end{Verbatim}
+        
+    We are restricting the analysis to the 4 most prevalent measure
+instruments in the database.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}47}]:} \PY{n}{unique\PYZus{}measures} \PY{o}{=} \PY{n}{analysis\PYZus{}subset}\PY{o}{.}\PY{n}{measure\PYZus{}instrument}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{tolist}\PY{p}{(}\PY{p}{)}
+         \PY{n}{k} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{unique\PYZus{}measures}\PY{p}{)}
+         \PY{n}{unique\PYZus{}measures}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}47}]:} ['Eyberg Child Behaviour Inventory, Intensity Subscale',
+          'Eyberg Child Behaviour Inventory, Problem Subscale',
+          'Child Behavior Checklist, Externalizing (T Score)',
+          'Child Behavior Checklist, Externalizing']
+\end{Verbatim}
+        
+    Three intervention components were coded:
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \texttt{child\_component}
+\item
+  \texttt{parent\_component}
+\item
+  \texttt{multi\_component}
+\end{itemize}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}48}]:} \PY{n}{analysis\PYZus{}subset}\PY{p}{[}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{child\PYZus{}only}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{parent\PYZus{}only}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{multi\PYZus{}component}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}48}]:} child\_only          6
+         parent\_only        33
+         multi\_component    27
+         dtype: int64
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}49}]:} \PY{n}{p\PYZus{}male}\PY{p}{,} \PY{n}{age\PYZus{}cat}\PY{p}{,} \PY{n}{intvn} \PY{o}{=} \PY{n}{analysis\PYZus{}subset}\PY{p}{[}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{p\PYZus{}male}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{age\PYZus{}cat}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{intvn}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{T}
+         \PY{n}{child\PYZus{}only}\PY{p}{,} \PY{n}{parent\PYZus{}only}\PY{p}{,} \PY{n}{multi\PYZus{}component} \PY{o}{=} \PY{n}{analysis\PYZus{}subset}\PY{p}{[}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{child\PYZus{}only}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{parent\PYZus{}only}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                                                                \PY{l+s}{\PYZsq{}}\PY{l+s}{multi\PYZus{}component}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{T}
+         
+         \PY{n}{change\PYZus{}n}\PY{p}{,} \PY{n}{change\PYZus{}mean}\PY{p}{,} \PY{n}{change\PYZus{}sd} \PY{o}{=} \PY{n}{analysis\PYZus{}subset}\PY{p}{[}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{eot\PYZus{}diff\PYZus{}n}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{eot\PYZus{}diff\PYZus{}mean}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{eot\PYZus{}diff\PYZus{}sd}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{T}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}50}]:} \PY{n}{school} \PY{o}{=} \PY{p}{(}\PY{n}{analysis\PYZus{}subset}\PY{o}{.}\PY{n}{age\PYZus{}cat}\PY{o}{.}\PY{n}{values}\PY{o}{==}\PY{l+m+mi}{0}\PY{p}{)}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
+         \PY{n}{pre\PYZus{}k} \PY{o}{=} \PY{p}{(}\PY{n}{analysis\PYZus{}subset}\PY{o}{.}\PY{n}{age\PYZus{}cat}\PY{o}{.}\PY{n}{values}\PY{o}{==}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
+         \PY{n}{teen} \PY{o}{=} \PY{p}{(}\PY{n}{analysis\PYZus{}subset}\PY{o}{.}\PY{n}{age\PYZus{}cat}\PY{o}{.}\PY{n}{values}\PY{o}{==}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
+\end{Verbatim}
+
+    The response variable is a multivariate normal of dimension k=4, for
+each of the measure instruments.
+
+\[\left({
+\begin{array}{c}
+  {m_1}\\
+  {m_2}\\
+  {m_3}\\
+  {m_4}
+\end{array}
+}\right)_i \sim\text{MVN}(\mathbf{\mu},\Sigma)\]
+
+    Means for each study are a draw from a multivariate normal.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}51}]:} \PY{n}{wishart} \PY{o}{=} \PY{n+nb+bp}{True}
+         
+         \PY{n}{mu} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Normal}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{mu}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mf}{0.001}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{n}{k}\PY{p}{)}
+         
+         \PY{k}{if} \PY{n}{wishart}\PY{p}{:}
+             \PY{n}{T} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Wishart}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{T}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{k}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{eye}\PY{p}{(}\PY{n}{k}\PY{p}{)}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{eye}\PY{p}{(}\PY{n}{k}\PY{p}{)}\PY{p}{)}
+             
+             \PY{n}{m} \PY{o}{=} \PY{p}{[}\PY{n}{pm}\PY{o}{.}\PY{n}{MvNormal}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{m\PYZus{}\PYZob{}\PYZcb{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{i}\PY{p}{)}\PY{p}{,} \PY{n}{mu}\PY{p}{,} \PY{n}{T}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{n}{k}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{unique\PYZus{}studies}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+         \PY{k}{else}\PY{p}{:}
+             \PY{n}{sigmas} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Uniform}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{sigmas}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{10}\PY{p}{]}\PY{o}{*}\PY{n}{k}\PY{p}{)}
+             \PY{n}{rhos} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Uniform}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{rhos}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{n+nb}{int}\PY{p}{(}\PY{n}{comb}\PY{p}{(}\PY{n}{k}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+         
+             \PY{n}{Sigma} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Lambda}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Sigma}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{k}{lambda} \PY{n}{s}\PY{o}{=}\PY{n}{sigmas}\PY{p}{,} \PY{n}{r}\PY{o}{=}\PY{n}{rhos}\PY{p}{:} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{n}{s}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{s}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{n}{s}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{n}{r}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{s}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{n}{s}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{*}\PY{n}{r}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{s}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{n}{s}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{o}{*}\PY{n}{r}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                                                                  \PY{p}{[}\PY{n}{s}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{n}{s}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{n}{r}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{s}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{s}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{n}{s}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{*}\PY{n}{r}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{,} \PY{n}{s}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{n}{s}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{o}{*}\PY{n}{r}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                                                                  \PY{p}{[}\PY{n}{s}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{n}{s}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{*}\PY{n}{r}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{s}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{n}{s}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{*}\PY{n}{r}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{,} \PY{n}{s}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{s}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{*}\PY{n}{s}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{o}{*}\PY{n}{r}\PY{p}{[}\PY{l+m+mi}{5}\PY{p}{]}\PY{p}{]}\PY{p}{,}
+                                                                  \PY{p}{[}\PY{n}{s}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{n}{s}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{o}{*}\PY{n}{r}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,} \PY{n}{s}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{n}{s}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{o}{*}\PY{n}{r}\PY{p}{[}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{,} \PY{n}{s}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{*}\PY{n}{s}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{o}{*}\PY{n}{r}\PY{p}{[}\PY{l+m+mi}{5}\PY{p}{]}\PY{p}{,} \PY{n}{s}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+             
+             \PY{n}{m} \PY{o}{=} \PY{p}{[}\PY{n}{pm}\PY{o}{.}\PY{n}{MvNormalCov}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{m\PYZus{}\PYZob{}\PYZcb{}}\PY{l+s}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{i}\PY{p}{)}\PY{p}{,} \PY{n}{mu}\PY{p}{,} \PY{n}{Sigma}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{n}{k}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{unique\PYZus{}studies}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
+
+    Unique intervention labels for each component; we will use these for
+component random effects.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}52}]:} \PY{n}{unique\PYZus{}child\PYZus{}intvn} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{n}{intvn}\PY{p}{[}\PY{n}{child\PYZus{}only}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{bool}\PY{p}{)}\PY{p}{]}\PY{p}{)}\PY{o}{.}\PY{n}{tolist}\PY{p}{(}\PY{p}{)}
+         \PY{n}{unique\PYZus{}parent\PYZus{}intvn} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{n}{intvn}\PY{p}{[}\PY{n}{parent\PYZus{}only}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{bool}\PY{p}{)}\PY{p}{]}\PY{p}{)}\PY{o}{.}\PY{n}{tolist}\PY{p}{(}\PY{p}{)}
+         \PY{n}{unique\PYZus{}multi\PYZus{}intvn} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{n}{intvn}\PY{p}{[}\PY{n}{multi\PYZus{}component}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{bool}\PY{p}{)}\PY{p}{]}\PY{p}{)}\PY{o}{.}\PY{n}{tolist}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}53}]:} \PY{c}{\PYZsh{} Indices to random effect labels}
+         \PY{n}{child\PYZus{}component\PYZus{}index} \PY{o}{=} \PY{p}{[}\PY{n}{unique\PYZus{}child\PYZus{}intvn}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{n}{x}\PY{p}{)} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{intvn}\PY{p}{[}\PY{n}{child\PYZus{}only}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{bool}\PY{p}{)}\PY{p}{]}\PY{p}{]}
+         \PY{n}{parent\PYZus{}component\PYZus{}index} \PY{o}{=} \PY{p}{[}\PY{n}{unique\PYZus{}parent\PYZus{}intvn}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{n}{x}\PY{p}{)} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{intvn}\PY{p}{[}\PY{n}{parent\PYZus{}only}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{bool}\PY{p}{)}\PY{p}{]}\PY{p}{]}
+         \PY{n}{multi\PYZus{}component\PYZus{}index} \PY{o}{=} \PY{p}{[}\PY{n}{unique\PYZus{}multi\PYZus{}intvn}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{n}{x}\PY{p}{)} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{intvn}\PY{p}{[}\PY{n}{multi\PYZus{}component}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{bool}\PY{p}{)}\PY{p}{]}\PY{p}{]}
+\end{Verbatim}
+
+    Treatment component random effects
+
+\[X_i = \left[{
+\begin{array}{c}
+  {x_c}\\
+  {x_p}\\
+  {x_f}\\
+\end{array}
+}\right]_i\]
+
+\[\begin{aligned}
+\beta_j^{(c)} &\sim N(\mu_{\beta}^{(c)},\tau_{\beta}^{(c)}) \\
+\beta_j^{(p)} &\sim N(\mu_{\beta}^{(p)},\tau_{\beta}^{(p)}) \\
+\beta_j^{(f)} &\sim N(\mu_{\beta}^{(f)},\tau_{\beta}^{(f)})
+\end{aligned}\]
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}54}]:} \PY{n}{mu\PYZus{}beta} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Normal}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{mu\PYZus{}beta}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mf}{0.001}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{l+m+mi}{3}\PY{p}{)}
+         \PY{c}{\PYZsh{} sig\PYZus{}beta = pm.Uniform(\PYZsq{}sig\PYZus{}beta\PYZsq{}, 0, 100, value=1)}
+         \PY{c}{\PYZsh{} tau\PYZus{}beta = sig\PYZus{}beta ** \PYZhy{}2}
+         \PY{n}{tau\PYZus{}beta} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Gamma}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{tau\PYZus{}beta}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mf}{0.1}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+         
+         \PY{n}{beta\PYZus{}c} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Normal}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{beta\PYZus{}c}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{mu\PYZus{}beta}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{tau\PYZus{}beta}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{n+nb}{len}\PY{p}{(}\PY{n}{unique\PYZus{}child\PYZus{}intvn}\PY{p}{)}\PY{p}{)}
+         \PY{n}{beta\PYZus{}p} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Normal}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{beta\PYZus{}p}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{mu\PYZus{}beta}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{tau\PYZus{}beta}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{n+nb}{len}\PY{p}{(}\PY{n}{unique\PYZus{}parent\PYZus{}intvn}\PY{p}{)}\PY{p}{)}
+         \PY{n}{beta\PYZus{}m} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Normal}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{beta\PYZus{}m}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{mu\PYZus{}beta}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,} \PY{n}{tau\PYZus{}beta}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{n+nb}{len}\PY{p}{(}\PY{n}{unique\PYZus{}multi\PYZus{}intvn}\PY{p}{)}\PY{p}{)}
+         
+         \PY{n}{b\PYZus{}c} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Lambda}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZus{}c}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{k}{lambda} \PY{n}{b}\PY{o}{=}\PY{n}{beta\PYZus{}c}\PY{p}{:} 
+                      \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{b}\PY{p}{[}\PY{n}{unique\PYZus{}child\PYZus{}intvn}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{]} \PY{k}{if} \PY{n}{child\PYZus{}only}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{k}{else} \PY{l+m+mi}{0} \PY{k}{for} \PY{n}{i}\PY{p}{,}\PY{n}{x} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{intvn}\PY{p}{)}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+         \PY{n}{b\PYZus{}p} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Lambda}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZus{}p}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{k}{lambda} \PY{n}{b}\PY{o}{=}\PY{n}{beta\PYZus{}p}\PY{p}{:} 
+                      \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{b}\PY{p}{[}\PY{n}{unique\PYZus{}parent\PYZus{}intvn}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{]} \PY{k}{if} \PY{n}{parent\PYZus{}only}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{k}{else} \PY{l+m+mi}{0} \PY{k}{for} \PY{n}{i}\PY{p}{,}\PY{n}{x} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{intvn}\PY{p}{)}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+         \PY{n}{b\PYZus{}m} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Lambda}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZus{}m}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{k}{lambda} \PY{n}{b}\PY{o}{=}\PY{n}{beta\PYZus{}m}\PY{p}{:} 
+                      \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{b}\PY{p}{[}\PY{n}{unique\PYZus{}multi\PYZus{}intvn}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{]} \PY{k}{if} \PY{n}{multi\PYZus{}component}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{k}{else} \PY{l+m+mi}{0} \PY{k}{for} \PY{n}{i}\PY{p}{,}\PY{n}{x} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{intvn}\PY{p}{)}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}55}]:} \PY{n}{best} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Lambda}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{best}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{k}{lambda} \PY{n}{b}\PY{o}{=}\PY{n}{mu\PYZus{}beta}\PY{p}{:}  \PY{p}{(}\PY{n}{b}\PY{o}{==}\PY{n}{b}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    Interaction of parent and multi-component with pre-k children.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}56}]:} \PY{n}{interaction} \PY{o}{=} \PY{n+nb+bp}{False}
+         
+         \PY{k}{if} \PY{n}{interaction}\PY{p}{:}
+             \PY{n}{beta\PYZus{}pk\PYZus{}p} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Normal}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{beta\PYZus{}pk\PYZus{}p}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mf}{1e\PYZhy{}5}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+             \PY{n}{beta\PYZus{}pk\PYZus{}m} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Normal}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{beta\PYZus{}pk\PYZus{}m}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mf}{1e\PYZhy{}5}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+             \PY{n}{b\PYZus{}pk\PYZus{}p} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Lambda}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZus{}pk\PYZus{}p}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{k}{lambda} \PY{n}{b}\PY{o}{=}\PY{n}{beta\PYZus{}pk\PYZus{}p}\PY{p}{:} \PY{n}{b} \PY{o}{*} \PY{n}{parent\PYZus{}only} \PY{o}{*} \PY{n}{pre\PYZus{}k}\PY{p}{)}
+             \PY{n}{b\PYZus{}pk\PYZus{}m} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Lambda}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{b\PYZus{}pk\PYZus{}m}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{k}{lambda} \PY{n}{b}\PY{o}{=}\PY{n}{beta\PYZus{}pk\PYZus{}m}\PY{p}{:} \PY{n}{b} \PY{o}{*} \PY{n}{multi\PYZus{}component} \PY{o}{*} \PY{n}{pre\PYZus{}k}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}57}]:} \PY{n}{betas} \PY{o}{=} \PY{n}{b\PYZus{}c} \PY{o}{+} \PY{n}{b\PYZus{}p} \PY{o}{+} \PY{n}{b\PYZus{}m} 
+         
+         \PY{k}{if} \PY{n}{interaction}\PY{p}{:}
+             \PY{n}{betas} \PY{o}{=} \PY{n}{betas} \PY{o}{+} \PY{n}{b\PYZus{}pk\PYZus{}p} \PY{o}{+} \PY{n}{b\PYZus{}pk\PYZus{}m}
+\end{Verbatim}
+
+    Covariate effects of age and percent female.
+
+\[\alpha \sim N(0, 1e5)\]
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}58}]:} \PY{n}{alpha\PYZus{}age} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Normal}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{alpha\PYZus{}age}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mf}{1e\PYZhy{}5}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    Unique study ID (\texttt{RefID}) and measure ID
+(\texttt{measure\_instrument}) values.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}59}]:} \PY{n}{study\PYZus{}id} \PY{o}{=} \PY{p}{[}\PY{n}{unique\PYZus{}studies}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{n}{x}\PY{p}{)} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{analysis\PYZus{}subset}\PY{o}{.}\PY{n}{RefID}\PY{p}{]}
+         \PY{n}{measure\PYZus{}id} \PY{o}{=} \PY{p}{[}\PY{n}{unique\PYZus{}measures}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{n}{x}\PY{p}{)} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{analysis\PYZus{}subset}\PY{o}{.}\PY{n}{measure\PYZus{}instrument}\PY{p}{]}
+\end{Verbatim}
+
+    Calculate expected response (treatment difference) as a function of
+treatment and covariates.
+
+\[\theta_i = m_{j[i]k} + X_i \beta + \alpha x_{age}\]
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}60}]:} \PY{n}{baseline\PYZus{}sd} \PY{o}{=} \PY{n}{analysis\PYZus{}subset}\PY{o}{.}\PY{n}{baseline\PYZus{}sd}\PY{o}{.}\PY{n}{values}
+         
+         \PY{n+nd}{@pm.deterministic}
+         \PY{k}{def} \PY{n+nf}{theta}\PY{p}{(}\PY{n}{m}\PY{o}{=}\PY{n}{m}\PY{p}{,} \PY{n}{betas}\PY{o}{=}\PY{n}{betas}\PY{p}{,} \PY{n}{alpha\PYZus{}age}\PY{o}{=}\PY{n}{alpha\PYZus{}age}\PY{p}{)}\PY{p}{:}  
+         
+             \PY{n}{mi} \PY{o}{=} \PY{p}{[}\PY{n}{m}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{n}{j}\PY{p}{]} \PY{k}{for} \PY{n}{i}\PY{p}{,}\PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{study\PYZus{}id}\PY{p}{,} \PY{n}{measure\PYZus{}id}\PY{p}{)}\PY{p}{]}
+             
+             \PY{n}{age\PYZus{}effect} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{alpha\PYZus{}age}\PY{p}{[}\PY{n}{a}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]} \PY{k}{if} \PY{n}{a} \PY{k}{else} \PY{l+m+mi}{0} \PY{k}{for} \PY{n}{a} \PY{o+ow}{in} \PY{n}{age\PYZus{}cat}\PY{p}{]}\PY{p}{)}
+             
+             \PY{k}{return}\PY{p}{(}\PY{n}{mi} \PY{o}{+} \PY{n}{baseline\PYZus{}sd}\PY{o}{*}\PY{p}{(}\PY{n}{betas} \PY{o}{+} \PY{n}{age\PYZus{}effect}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    Expected treatment effect for pre-K undergoing multi-component
+intervention, measused by Eyberg Child Behaviour Inventory, Intensity
+Subscale
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}61}]:} \PY{n}{baseline} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{MvNormalCov}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{baseline}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{mu}\PY{p}{,} \PY{n}{T}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{n}{k}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}63}]:} \PY{n}{ecbi\PYZus{}intensity\PYZus{}sd} \PY{o}{=} \PY{n}{baseline\PYZus{}sd}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{measure\PYZus{}id}\PY{p}{)}\PY{o}{==}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}
+         
+         \PY{n}{prek\PYZus{}intensity\PYZus{}pred} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Lambda}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{prek\PYZus{}intensity\PYZus{}pred}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                     \PY{k}{lambda} \PY{n}{mu}\PY{o}{=}\PY{n}{baseline}\PY{p}{,} \PY{n}{a}\PY{o}{=}\PY{n}{alpha\PYZus{}age}\PY{p}{,} \PY{n}{b}\PY{o}{=}\PY{n}{mu\PYZus{}beta}\PY{p}{:} \PY{n}{mu}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{+} \PY{n}{ecbi\PYZus{}intensity\PYZus{}sd}\PY{o}{*}\PY{p}{(}\PY{n}{b} \PY{o}{+} \PY{n}{a}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)} \PY{p}{)}
+         \PY{n}{school\PYZus{}intensity\PYZus{}pred} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Lambda}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{school\PYZus{}intensity\PYZus{}pred}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                     \PY{k}{lambda} \PY{n}{mu}\PY{o}{=}\PY{n}{baseline}\PY{p}{,} \PY{n}{a}\PY{o}{=}\PY{n}{alpha\PYZus{}age}\PY{p}{,} \PY{n}{b}\PY{o}{=}\PY{n}{mu\PYZus{}beta}\PY{p}{:} \PY{n}{mu}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{+} \PY{n}{ecbi\PYZus{}intensity\PYZus{}sd}\PY{o}{*}\PY{n}{b} \PY{p}{)}
+         \PY{n}{teen\PYZus{}intensity\PYZus{}pred} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Lambda}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{teen\PYZus{}intensity\PYZus{}pred}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                     \PY{k}{lambda} \PY{n}{mu}\PY{o}{=}\PY{n}{baseline}\PY{p}{,} \PY{n}{a}\PY{o}{=}\PY{n}{alpha\PYZus{}age}\PY{p}{,} \PY{n}{b}\PY{o}{=}\PY{n}{mu\PYZus{}beta}\PY{p}{:} \PY{n}{mu}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{+} \PY{n}{ecbi\PYZus{}intensity\PYZus{}sd}\PY{o}{*}\PY{p}{(}\PY{n}{b} \PY{o}{+} \PY{n}{a}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)} \PY{p}{)}
+         
+         \PY{n}{ecbi\PYZus{}problem\PYZus{}sd} \PY{o}{=} \PY{n}{baseline\PYZus{}sd}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{measure\PYZus{}id}\PY{p}{)}\PY{o}{==}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}
+         
+         \PY{n}{prek\PYZus{}problem\PYZus{}pred} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Lambda}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{prek\PYZus{}problem\PYZus{}pred}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                     \PY{k}{lambda} \PY{n}{mu}\PY{o}{=}\PY{n}{baseline}\PY{p}{,} \PY{n}{a}\PY{o}{=}\PY{n}{alpha\PYZus{}age}\PY{p}{,} \PY{n}{b}\PY{o}{=}\PY{n}{mu\PYZus{}beta}\PY{p}{:} \PY{n}{mu}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{+} \PY{n}{ecbi\PYZus{}problem\PYZus{}sd}\PY{o}{*}\PY{p}{(}\PY{n}{b} \PY{o}{+} \PY{n}{a}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)} \PY{p}{)}
+         \PY{n}{school\PYZus{}problem\PYZus{}pred} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Lambda}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{school\PYZus{}problem\PYZus{}pred}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                     \PY{k}{lambda} \PY{n}{mu}\PY{o}{=}\PY{n}{baseline}\PY{p}{,} \PY{n}{a}\PY{o}{=}\PY{n}{alpha\PYZus{}age}\PY{p}{,} \PY{n}{b}\PY{o}{=}\PY{n}{mu\PYZus{}beta}\PY{p}{:} \PY{n}{mu}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{+} \PY{n}{ecbi\PYZus{}problem\PYZus{}sd}\PY{o}{*}\PY{n}{b} \PY{p}{)}
+         \PY{n}{teen\PYZus{}problem\PYZus{}pred} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Lambda}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{teen\PYZus{}problem\PYZus{}pred}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                     \PY{k}{lambda} \PY{n}{mu}\PY{o}{=}\PY{n}{baseline}\PY{p}{,} \PY{n}{a}\PY{o}{=}\PY{n}{alpha\PYZus{}age}\PY{p}{,} \PY{n}{b}\PY{o}{=}\PY{n}{mu\PYZus{}beta}\PY{p}{:} \PY{n}{mu}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{+} \PY{n}{ecbi\PYZus{}problem\PYZus{}sd}\PY{o}{*}\PY{p}{(}\PY{n}{b} \PY{o}{+} \PY{n}{a}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)} \PY{p}{)}
+         
+         \PY{n}{cbct\PYZus{}sd} \PY{o}{=} \PY{n}{baseline\PYZus{}sd}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{measure\PYZus{}id}\PY{p}{)}\PY{o}{==}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}
+         
+         \PY{n}{prek\PYZus{}tscore\PYZus{}pred} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Lambda}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{prek\PYZus{}tscore\PYZus{}pred}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                     \PY{k}{lambda} \PY{n}{mu}\PY{o}{=}\PY{n}{baseline}\PY{p}{,} \PY{n}{a}\PY{o}{=}\PY{n}{alpha\PYZus{}age}\PY{p}{,} \PY{n}{b}\PY{o}{=}\PY{n}{mu\PYZus{}beta}\PY{p}{:} \PY{n}{mu}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]} \PY{o}{+} \PY{n}{cbct\PYZus{}sd}\PY{o}{*}\PY{p}{(}\PY{n}{b} \PY{o}{+} \PY{n}{a}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)} \PY{p}{)}
+         \PY{n}{school\PYZus{}tscore\PYZus{}pred} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Lambda}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{school\PYZus{}tscore\PYZus{}pred}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                     \PY{k}{lambda} \PY{n}{mu}\PY{o}{=}\PY{n}{baseline}\PY{p}{,} \PY{n}{b}\PY{o}{=}\PY{n}{mu\PYZus{}beta}\PY{p}{:} \PY{n}{mu}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]} \PY{o}{+} \PY{n}{cbct\PYZus{}sd}\PY{o}{*}\PY{n}{b} \PY{p}{)}
+         \PY{n}{teen\PYZus{}tscore\PYZus{}pred} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Lambda}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{teen\PYZus{}tscore\PYZus{}pred}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                     \PY{k}{lambda} \PY{n}{mu}\PY{o}{=}\PY{n}{baseline}\PY{p}{,} \PY{n}{a}\PY{o}{=}\PY{n}{alpha\PYZus{}age}\PY{p}{,} \PY{n}{b}\PY{o}{=}\PY{n}{mu\PYZus{}beta}\PY{p}{:} \PY{n}{mu}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]} \PY{o}{+} \PY{n}{cbct\PYZus{}sd}\PY{o}{*}\PY{p}{(}\PY{n}{b} \PY{o}{+} \PY{n}{a}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)} \PY{p}{)}
+         
+         \PY{n}{cbcr\PYZus{}sd} \PY{o}{=} \PY{n}{baseline\PYZus{}sd}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{measure\PYZus{}id}\PY{p}{)}\PY{o}{==}\PY{l+m+mi}{3}\PY{p}{]}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}
+         
+         \PY{n}{prek\PYZus{}raw\PYZus{}pred} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Lambda}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{prek\PYZus{}raw\PYZus{}pred}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                     \PY{k}{lambda} \PY{n}{mu}\PY{o}{=}\PY{n}{baseline}\PY{p}{,} \PY{n}{a}\PY{o}{=}\PY{n}{alpha\PYZus{}age}\PY{p}{,} \PY{n}{b}\PY{o}{=}\PY{n}{mu\PYZus{}beta}\PY{p}{:} \PY{n}{mu}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]} \PY{o}{+} \PY{n}{cbcr\PYZus{}sd}\PY{o}{*}\PY{p}{(}\PY{n}{b} \PY{o}{+} \PY{n}{a}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)} \PY{p}{)}
+         \PY{n}{school\PYZus{}raw\PYZus{}pred} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Lambda}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{school\PYZus{}raw\PYZus{}pred}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                     \PY{k}{lambda} \PY{n}{mu}\PY{o}{=}\PY{n}{baseline}\PY{p}{,} \PY{n}{b}\PY{o}{=}\PY{n}{mu\PYZus{}beta}\PY{p}{:} \PY{n}{mu}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]} \PY{o}{+} \PY{n}{cbcr\PYZus{}sd}\PY{o}{*}\PY{n}{b} \PY{p}{)}
+         \PY{n}{teen\PYZus{}raw\PYZus{}pred} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Lambda}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{teen\PYZus{}raw\PYZus{}pred}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                     \PY{k}{lambda} \PY{n}{mu}\PY{o}{=}\PY{n}{baseline}\PY{p}{,} \PY{n}{a}\PY{o}{=}\PY{n}{alpha\PYZus{}age}\PY{p}{,} \PY{n}{b}\PY{o}{=}\PY{n}{mu\PYZus{}beta}\PY{p}{:} \PY{n}{mu}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]} \PY{o}{+} \PY{n}{cbcr\PYZus{}sd}\PY{o}{*}\PY{p}{(}\PY{n}{b} \PY{o}{+} \PY{n}{a}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)} \PY{p}{)}
+\end{Verbatim}
+
+    Finally, the likelihood is just a normal distribution, with the observed
+standard error of the treatment effect as the standard deviation of the
+estimates.
+
+\[d_i \sim N(\theta_i, \hat{\sigma}^2)\]
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}78}]:} \PY{n}{change\PYZus{}se} \PY{o}{=} \PY{n}{change\PYZus{}sd}\PY{o}{/}\PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n}{change\PYZus{}n}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}79}]:} \PY{n}{d} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Normal}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{d}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{theta}\PY{p}{,} \PY{n}{change\PYZus{}se}\PY{o}{*}\PY{o}{*}\PY{o}{\PYZhy{}}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{observed}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{n}{change\PYZus{}mean}\PY{p}{)}
+\end{Verbatim}
+
+    Posterior predictive samples
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}80}]:} \PY{n}{d\PYZus{}sim} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{Normal}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{d\PYZus{}sim}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{theta}\PY{p}{,} \PY{n}{change\PYZus{}se}\PY{o}{*}\PY{o}{*}\PY{o}{\PYZhy{}}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{n+nb}{len}\PY{p}{(}\PY{n}{change\PYZus{}mean}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}81}]:} \PY{k+kn}{import} \PY{n+nn}{appnope}
+         \PY{n}{appnope}\PY{o}{.}\PY{n}{nope}\PY{p}{(}\PY{p}{)}
+         
+         \PY{n}{M} \PY{o}{=} \PY{n}{pm}\PY{o}{.}\PY{n}{MCMC}\PY{p}{(}\PY{n+nb}{locals}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         \PY{n}{M}\PY{o}{.}\PY{n}{use\PYZus{}step\PYZus{}method}\PY{p}{(}\PY{n}{pm}\PY{o}{.}\PY{n}{AdaptiveMetropolis}\PY{p}{,} \PY{p}{[}\PY{n}{mu}\PY{p}{]}\PY{p}{)}
+         \PY{n}{M}\PY{o}{.}\PY{n}{use\PYZus{}step\PYZus{}method}\PY{p}{(}\PY{n}{pm}\PY{o}{.}\PY{n}{AdaptiveMetropolis}\PY{p}{,} \PY{n}{m}\PY{p}{)}
+         \PY{n}{M}\PY{o}{.}\PY{n}{use\PYZus{}step\PYZus{}method}\PY{p}{(}\PY{n}{pm}\PY{o}{.}\PY{n}{AdaptiveMetropolis}\PY{p}{,} \PY{n}{mu\PYZus{}beta}\PY{p}{)}
+         \PY{n}{M}\PY{o}{.}\PY{n}{use\PYZus{}step\PYZus{}method}\PY{p}{(}\PY{n}{pm}\PY{o}{.}\PY{n}{AdaptiveMetropolis}\PY{p}{,} \PY{p}{[}\PY{n}{beta\PYZus{}c}\PY{p}{,} \PY{n}{beta\PYZus{}p}\PY{p}{,} \PY{n}{beta\PYZus{}m}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}82}]:} \PY{n}{M}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{l+m+mi}{200000}\PY{p}{,} \PY{l+m+mi}{190000}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[-----------------100\%-----------------] 200000 of 200000 complete in 585.7 sec
+    \end{Verbatim}
+
+    Summary of estimates of intervention components
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}83}]:} \PY{n}{pm}\PY{o}{.}\PY{n}{Matplot}\PY{o}{.}\PY{n}{summary\PYZus{}plot}\PY{p}{(}\PY{p}{[}\PY{n}{mu\PYZus{}beta}\PY{p}{]}\PY{p}{,} \PY{n}{custom\PYZus{}labels}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Child component}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Parent component}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                                                                       \PY{l+s}{\PYZsq{}}\PY{l+s}{Multi\PYZhy{}component}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Could not calculate Gelman-Rubin statistics. Requires multiple chains of equal length.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_100_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}84}]:} \PY{n}{mu\PYZus{}beta}\PY{o}{.}\PY{n}{summary}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+mu\_beta:
+ 
+	Mean             SD               MC Error        95\% HPD interval
+	------------------------------------------------------------------
+	-0.56            0.3              0.016            [-1.191 -0.004]
+	-1.007           0.217            0.011            [-1.418 -0.564]
+	-1.143           0.247            0.012            [-1.607 -0.629]
+	
+	
+	Posterior quantiles:
+	
+	2.5             25              50              75             97.5
+	 |---------------|===============|===============|---------------|
+	-1.165           -0.748          -0.558         -0.364        0.036
+	-1.418           -1.155          -1.008         -0.868        -0.563
+	-1.65            -1.302          -1.149         -0.989        -0.654
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}85}]:} \PY{n}{best}\PY{o}{.}\PY{n}{summary}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+best:
+ 
+	Mean             SD               MC Error        95\% HPD interval
+	------------------------------------------------------------------
+	0.034            0.182            0.005                  [ 0.  0.]
+	0.322            0.467            0.021                  [ 0.  1.]
+	0.644            0.479            0.02                   [ 0.  1.]
+	
+	
+	Posterior quantiles:
+	
+	2.5             25              50              75             97.5
+	 |---------------|===============|===============|---------------|
+	0.0              0.0             0.0            0.0           1.0
+	0.0              0.0             0.0            1.0           1.0
+	0.0              0.0             1.0            1.0           1.0
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}86}]:} \PY{n}{pm}\PY{o}{.}\PY{n}{Matplot}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{mu\PYZus{}beta}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Plotting mu\_beta\_0
+Plotting mu\_beta\_1
+Plotting mu\_beta\_2
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_103_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}87}]:} \PY{k}{if} \PY{n}{interaction}\PY{p}{:}
+             \PY{n}{pm}\PY{o}{.}\PY{n}{Matplot}\PY{o}{.}\PY{n}{summary\PYZus{}plot}\PY{p}{(}\PY{p}{[}\PY{n}{beta\PYZus{}pk\PYZus{}m}\PY{p}{,} \PY{n}{beta\PYZus{}pk\PYZus{}p}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    Difference means by measure instrument.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}88}]:} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{24}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{)}\PY{p}{)}
+         \PY{n}{pm}\PY{o}{.}\PY{n}{Matplot}\PY{o}{.}\PY{n}{summary\PYZus{}plot}\PY{p}{(}\PY{p}{[}\PY{n}{mu}\PY{p}{]}\PY{p}{,} \PY{n}{custom\PYZus{}labels}\PY{o}{=}\PY{n}{unique\PYZus{}measures}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Could not calculate Gelman-Rubin statistics. Requires multiple chains of equal length.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_106_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}89}]:} \PY{n}{pm}\PY{o}{.}\PY{n}{Matplot}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{mu}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Plotting mu\_0
+Plotting mu\_1
+Plotting mu\_2
+Plotting mu\_3
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_107_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}90}]:} \PY{k}{if} \PY{o+ow}{not} \PY{n}{wishart}\PY{p}{:}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{24}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{)}\PY{p}{)}
+             \PY{n}{pm}\PY{o}{.}\PY{n}{Matplot}\PY{o}{.}\PY{n}{summary\PYZus{}plot}\PY{p}{(}\PY{p}{[}\PY{n}{sigmas}\PY{p}{]}\PY{p}{,} \PY{n}{custom\PYZus{}labels}\PY{o}{=}\PY{n}{unique\PYZus{}measures}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}91}]:} \PY{k}{if} \PY{o+ow}{not} \PY{n}{wishart}\PY{p}{:}
+             \PY{n}{pm}\PY{o}{.}\PY{n}{Matplot}\PY{o}{.}\PY{n}{summary\PYZus{}plot}\PY{p}{(}\PY{p}{[}\PY{n}{rhos}\PY{p}{]}\PY{p}{,} \PY{n}{custom\PYZus{}labels}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{rho12}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{rho13}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{rho14}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{rho23}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{rho24}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{rho34}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    Age effects for pre-k (top) and teen (bottom) groups, relative to
+pre-teen.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}92}]:} \PY{n}{pm}\PY{o}{.}\PY{n}{Matplot}\PY{o}{.}\PY{n}{summary\PYZus{}plot}\PY{p}{(}\PY{p}{[}\PY{n}{alpha\PYZus{}age}\PY{p}{]}\PY{p}{,} \PY{n}{custom\PYZus{}labels}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{pre\PYZhy{}K}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{teen}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Could not calculate Gelman-Rubin statistics. Requires multiple chains of equal length.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_111_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}93}]:} \PY{n}{alpha\PYZus{}age}\PY{o}{.}\PY{n}{summary}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+alpha\_age:
+ 
+	Mean             SD               MC Error        95\% HPD interval
+	------------------------------------------------------------------
+	-0.241           0.072            0.005            [-0.372 -0.09 ]
+	-0.149           0.145            0.011            [-0.436  0.12 ]
+	
+	
+	Posterior quantiles:
+	
+	2.5             25              50              75             97.5
+	 |---------------|===============|===============|---------------|
+	-0.379           -0.288          -0.242         -0.192        -0.097
+	-0.436           -0.251          -0.145         -0.044        0.12
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}94}]:} \PY{n}{pm}\PY{o}{.}\PY{n}{Matplot}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{alpha\PYZus{}age}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Plotting alpha\_age\_0
+Plotting alpha\_age\_1
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_113_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    \subsection{Outcome Plots}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}95}]:} \PY{n}{traces} \PY{o}{=} \PY{p}{[}\PY{p}{[}\PY{n}{school\PYZus{}intensity\PYZus{}pred}\PY{p}{,} \PY{n}{prek\PYZus{}intensity\PYZus{}pred}\PY{p}{,} \PY{n}{teen\PYZus{}intensity\PYZus{}pred}\PY{p}{]}\PY{p}{,}
+                   \PY{p}{[}\PY{n}{school\PYZus{}problem\PYZus{}pred}\PY{p}{,} \PY{n}{prek\PYZus{}problem\PYZus{}pred}\PY{p}{,} \PY{n}{teen\PYZus{}problem\PYZus{}pred}\PY{p}{]}\PY{p}{,}
+                   \PY{p}{[}\PY{n}{school\PYZus{}tscore\PYZus{}pred}\PY{p}{,} \PY{n}{prek\PYZus{}tscore\PYZus{}pred}\PY{p}{,} \PY{n}{teen\PYZus{}tscore\PYZus{}pred}\PY{p}{]}\PY{p}{,}
+                   \PY{p}{[}\PY{n}{school\PYZus{}raw\PYZus{}pred}\PY{p}{,} \PY{n}{prek\PYZus{}raw\PYZus{}pred}\PY{p}{,} \PY{n}{teen\PYZus{}raw\PYZus{}pred}\PY{p}{]}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}96}]:} \PY{n}{sb}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{style}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{white}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{palette}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{hot}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{sb}\PY{o}{.}\PY{n}{despine}\PY{p}{(}\PY{n}{left}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{)}
+         
+         \PY{c}{\PYZsh{}colors = \PYZsq{}\PYZsh{}fef0d9\PYZsq{},\PYZsq{}\PYZsh{}fdcc8a\PYZsq{},\PYZsq{}\PYZsh{}fc8d59\PYZsq{},\PYZsq{}\PYZsh{}d7301f\PYZsq{}}
+         \PY{n}{colors} \PY{o}{=} \PY{n}{sb}\PY{o}{.}\PY{n}{cubehelix\PYZus{}palette}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{,} \PY{n}{start}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{rot}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{dark}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{25}\PY{p}{,} \PY{n}{light}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{75}\PY{p}{,} \PY{n}{reverse}\PY{o}{=}\PY{n+nb+bp}{False}\PY{p}{)}
+         
+         \PY{n}{titles} \PY{o}{=} \PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{School Children}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Pre\PYZhy{}K Children}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Teenage Children}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         
+         \PY{k}{for} \PY{n}{i}\PY{p}{,}\PY{n}{measure} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{unique\PYZus{}measures}\PY{p}{)}\PY{p}{:}
+             
+             \PY{n}{measure\PYZus{}traces} \PY{o}{=} \PY{n}{traces}\PY{p}{[}\PY{n}{i}\PY{p}{]}
+             
+             \PY{k}{for} \PY{n}{j}\PY{p}{,} \PY{n}{trace} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{measure\PYZus{}traces}\PY{p}{)}\PY{p}{:}
+                 
+                 \PY{n}{x} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{choice}\PY{p}{(}\PY{n}{analysis\PYZus{}subset}\PY{p}{[}\PY{n}{analysis\PYZus{}subset}\PY{o}{.}\PY{n}{measure\PYZus{}instrument}\PY{o}{==}\PY{n}{measure}\PY{p}{]}\PY{o}{.}\PY{n}{baseline\PYZus{}mean}\PY{p}{,} \PY{l+m+mi}{10000}\PY{p}{)}
+                 
+                 \PY{n}{c1}\PY{p}{,} \PY{n}{p1}\PY{p}{,} \PY{n}{m1} \PY{o}{=} \PY{n}{trace}\PY{o}{.}\PY{n}{trace}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{T}
+                 
+                 \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+                 \PY{n}{g} \PY{o}{=} \PY{n}{sb}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{x} \PY{o}{+} \PY{n}{c1}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{n}{colors}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+                 \PY{n}{sb}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{x} \PY{o}{+} \PY{n}{p1}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{n}{colors}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+                 \PY{n}{sb}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{x} \PY{o}{+} \PY{n}{m1}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{n}{colors}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+                 \PY{k}{if} \PY{n}{j}\PY{p}{:}
+                     \PY{n}{age\PYZus{}effect} \PY{o}{=} \PY{n}{alpha\PYZus{}age}\PY{o}{.}\PY{n}{trace}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{n}{j}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{n}{age\PYZus{}effect} \PY{o}{=} \PY{l+m+mi}{0}
+                 \PY{n}{sb}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{x} \PY{o}{+} \PY{n}{baseline}\PY{o}{.}\PY{n}{trace}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{n}{i}\PY{p}{]} \PY{o}{+} \PY{n}{age\PYZus{}effect}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{n}{colors}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{)}\PY{p}{;}
+                 \PY{n}{g}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{n}{titles}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{)}
+         
+                 \PY{n}{g}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{n}{g}\PY{o}{.}\PY{n}{lines}\PY{p}{,} \PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Child\PYZhy{}only}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Parent\PYZhy{}only}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Multi\PYZhy{}component}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Control/TAU}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         
+                 \PY{n}{g}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{n}{measure}\PY{p}{)}
+\end{Verbatim}
+
+    
+    \begin{verbatim}
+<matplotlib.figure.Figure at 0x108a7e4a8>
+    \end{verbatim}
+
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_116_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_116_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_116_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_116_4.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_116_5.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_116_6.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_116_7.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_116_8.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_116_9.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_116_10.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_116_11.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Disruptive Behavior Disorder Meta-analysis_files/Disruptive Behavior Disorder Meta-analysis_116_12.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}97}]:} \PY{n}{x1} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{choice}\PY{p}{(}\PY{n}{analysis\PYZus{}subset}\PY{p}{[}\PY{n}{analysis\PYZus{}subset}\PY{o}{.}\PY{n}{measure\PYZus{}instrument}\PY{o}{==}\PY{n}{unique\PYZus{}measures}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{baseline\PYZus{}mean}\PY{p}{,} \PY{l+m+mi}{10000}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{c}{\PYZsh{}pm.Matplot.gof\PYZus{}plot(d\PYZus{}sim, change\PYZus{}mean, verbose=0)}
+\end{Verbatim}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
